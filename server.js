@@ -6,8 +6,9 @@ const contactRouter = require('./routes/contact');
 const authRouter = require('./routes/auth');
 const connectDB = require('./config/db');
 
-const app = express();
 connectDB();
+const app = express();
+app.use(express.json({ extended: false }));
 
 app.use('/api/users', userRouter);
 app.use('/api/contacts', contactRouter);
